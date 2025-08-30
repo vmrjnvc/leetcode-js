@@ -46,5 +46,24 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-
+    const parenthesesMap = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+    const opened = [];
+    for (const char of s) {
+        if (parenthesesMap[char]) {
+            opened.push(parenthesesMap[char]);
+        } else {
+            if (!opened.length || char !== opened.pop()) return false;
+        }
+    }
+    return !opened.length
 };
+
+console.log(isValid('()'));
+console.log(isValid('([])'));
+console.log(isValid('(])'));
+console.log(isValid('(){}[]'));
+console.log(isValid('(){}]['));
