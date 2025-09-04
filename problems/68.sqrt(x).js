@@ -23,5 +23,10 @@
  * @return {number}
  */
 var mySqrt = function(x) {
-
+    let sqrt = 1;
+    while (true) {
+        if (sqrt * sqrt === x) return sqrt;
+        if (sqrt * sqrt > x) return sqrt-1;
+        sqrt++;
+    }
 };
