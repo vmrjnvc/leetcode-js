@@ -20,5 +20,22 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-
+    let res = '';
+    let carry = 0;
+    let sum = 0;
+    let [i,j] = [a.length - 1, b.length - 1];
+    while (i >= 0 || j >= 0 || carry) {
+        let sum = carry;
+        if (i >= 0) {
+            sum += Number(a[i]);
+            i--;
+        }
+        if (j >= 0) {
+            sum += Number(b[j]);
+            j--;
+        }
+        res = (sum % 2) + res;
+        carry = Math.floor(sum / 2);
+    }
+    return res
 };
