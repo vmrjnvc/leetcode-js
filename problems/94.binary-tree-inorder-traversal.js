@@ -48,6 +48,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+
+// Solved with recursion
 var inorderTraversal = function(root) {
     if (!root) return [];
     const res = [];
@@ -57,5 +59,24 @@ var inorderTraversal = function(root) {
         if (node.right) traverse(node.right);
     }
     traverse(root);
+    return res;
+};
+
+// Solved iteratively
+var inorderTraversal2 = function(root) {
+    const res = [];
+    const stack = []; // Create a stack to keep track of the nodes you need to return to.
+
+    while (root || stack.length) {
+        // Loop through the left nodes until you reach one without a left child.
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        // When there are no more left nodes to visit, pop the last visited node from the stack, push it to the result array, and then move to its right child if there is one. If there is no right child, the loop will continue and pop the next node from the stack.
+        root = stack.pop();
+        res.push(root.val);
+        root = root.right;
+    }
     return res;
 };
