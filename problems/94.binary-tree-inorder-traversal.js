@@ -50,20 +50,20 @@
  */
 
 // Solved with recursion
-var inorderTraversal = function(root) {
-    if (!root) return [];
-    const res = [];
-    function traverse(node) {
-        if (node.left) traverse(node.left);
-        res.push(node.val);
-        if (node.right) traverse(node.right);
-    }
-    traverse(root);
-    return res;
-};
+// var inorderTraversal = function(root) {
+//     if (!root) return [];
+//     const res = [];
+//     function traverse(node) {
+//         if (node.left) traverse(node.left);
+//         res.push(node.val);
+//         if (node.right) traverse(node.right);
+//     }
+//     traverse(root);
+//     return res;
+// };
 
 // Solved iteratively
-var inorderTraversal2 = function(root) {
+var inorderTraversal = function(root) {
     const res = [];
     const stack = []; // Create a stack to keep track of the nodes you need to return to.
 
